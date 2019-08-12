@@ -2,7 +2,7 @@
 
 ## Docker container
 
-I'm running MySQL server in a Docker container:
+I'm running MySQL server in a Docker container, following instructions from this meetup's materials : https://github.com/IBMDeveloperUK/containers101
 
 Pull an image of MySQL server via Docker:
 
