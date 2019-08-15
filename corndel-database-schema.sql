@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS employees (
   employee_number INT NOT NULL AUTO_INCREMENT,
   first_name      VARCHAR(255) NOT NULL,
   last_name       VARCHAR(255) NOT NULL,
-  age             INT,
+  birthday        TIMESTAMP,
   annual_salary   MEDIUMINT(255),
   monthly_salary  MEDIUMINT(255),
   job_position    INT NOT NULL,
