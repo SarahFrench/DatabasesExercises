@@ -16,7 +16,6 @@ CREATE TABLE IF NOT EXISTS employees (
   annual_salary   MEDIUMINT(255),
   monthly_salary  MEDIUMINT(255),
   job_position    INT NOT NULL,
-  pension_fund    INT NOT NULL,
   PRIMARY KEY (employee_number)
 );
 
@@ -35,6 +34,7 @@ CREATE TABLE IF NOT EXISTS job_positions (
 
 CREATE TABLE IF NOT EXISTS pensions (
   id INT NOT NULL AUTO_INCREMENT,
+  employee_id INT NOT NULL,
   total_contributions MEDIUMINT(255) NOT NULL DEFAULT 0,
   monthly_contribution MEDIUMINT(255) NOT NULL DEFAULT 0,
   provider INT NOT NULL DEFAULT 1,
@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS pension_providers (
 ALTER TABLE employees ADD CONSTRAINT fk_job_position FOREIGN KEY (job_position) REFERENCES job_positions(id);
 ALTER TABLE employees ADD CONSTRAINT fk_pension_fund FOREIGN KEY (pension_fund) REFERENCES pensions(id);
 
+ALTER TABLE pensions ADD CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employees(id);
 ALTER TABLE pensions ADD CONSTRAINT fk_provider FOREIGN KEY (provider) REFERENCES pension_providers(id);
 
 
@@ -73,12 +74,12 @@ VALUES  ("Developer","Tech"),
         ("Payroll Admin","Finance"),
         ("Intern","Other");
 
-INSERT INTO pensions (total_contributions, monthly_contribution, provider)
-VALUES  (500, 0, DEFAULT),
-        (500, 0, DEFAULT),
-        (1500, 0, DEFAULT),
-        (100, 0, 2),
-        (1450, 0, DEFAULT);
+INSERT INTO pensions (employee_id, total_contributions, monthly_contribution, provider)
+VALUES  (1, 500, 0, DEFAULT),
+        (1, 500, 0, 2),
+        (2,1500, 0, DEFAULT),
+        (3, 100, 0, 2),
+        (4, 1450, 0, DEFAULT);
 
 INSERT INTO employees ( first_name, last_name, age, annual_salary, monthly_salary, job_position, pension_fund)
   VALUES  ("Joe", "Bloggs", 28, 30000, 2500, 1, 1),
