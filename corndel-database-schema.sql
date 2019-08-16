@@ -52,9 +52,9 @@ CREATE TABLE IF NOT EXISTS pension_providers (
 -- Set up foreign keys:
 
 ALTER TABLE employees ADD CONSTRAINT fk_job_position FOREIGN KEY (job_position) REFERENCES job_positions(id);
-ALTER TABLE employees ADD CONSTRAINT fk_pension_fund FOREIGN KEY (pension_fund) REFERENCES pensions(id);
 
-ALTER TABLE pensions ADD CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employees(id);
+ALTER TABLE pensions ADD CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employees(employee_number);
+
 ALTER TABLE pensions ADD CONSTRAINT fk_provider FOREIGN KEY (provider) REFERENCES pension_providers(id);
 
 
@@ -77,13 +77,13 @@ VALUES  ("Developer","Tech"),
 INSERT INTO pensions (employee_id, total_contributions, monthly_contribution, provider)
 VALUES  (1, 500, 0, DEFAULT),
         (1, 500, 0, 2),
-        (2,1500, 0, DEFAULT),
+        (2, 1500, 0, DEFAULT),
         (3, 100, 0, 2),
         (4, 1450, 0, DEFAULT);
 
-INSERT INTO employees ( first_name, last_name, age, annual_salary, monthly_salary, job_position, pension_fund)
-  VALUES  ("Joe", "Bloggs", 28, 30000, 2500, 1, 1),
-          ("Joanna", "Bleggs", 25, 27000, 2250, 1, 2),
-          ("John", "Bragg", 30, 37500, 3125, 5, 3),
-          ("Johannes", "Blégs", 24, 30000, 2500, 2, 4),
-          ("Jo", "Blages", 33, 40000, 3333.33, 7, 5)
+INSERT INTO employees ( first_name, last_name, birthday, annual_salary, monthly_salary, job_position)
+  VALUES  ("Joe", "Bloggs", '1983-11-01', 30000, 2500, 1),
+          ("Joanna", "Bleggs", birthday, 27000, 2250, 1),
+          ("John", "Bragg", birthday, 37500, 3125, 5),
+          ("Johannes", "Blégs", birthday, 30000, 2500, 2),
+          ("Jo", "Blages", birthday, 40000, 3333.33, 7);
