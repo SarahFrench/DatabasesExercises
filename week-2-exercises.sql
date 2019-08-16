@@ -52,8 +52,4 @@ FROM (
 ) AS t1;
 
 -- Modify the previous query to create pension funds for all those employees, with the default pension fund provider (default provider should be a column on your pension provider table)
-
---This can be run manually over and over until there aren't any results for the nested query
 INSERT INTO pensions (employee_id)  SELECT employee_number FROM (   SELECT *  FROM employees   LEFT JOIN pensions   ON pensions.employee_id = employees.employee_number ) AS t1 WHERE t1.id IS NULL;
-
---ideally this'll be in a stored procedure and there'll be a loop controlling it... but how?
