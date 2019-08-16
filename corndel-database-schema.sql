@@ -75,11 +75,11 @@ VALUES  ("Developer","Tech"),
         ("Intern","Other");
 
 INSERT INTO pensions (employee_id, total_contributions, monthly_contribution, provider)
-VALUES  (1, 500, 0, DEFAULT),
-        (1, 500, 0, 2),
-        (2, 1500, 0, DEFAULT),
-        (3, 100, 0, 2),
-        (4, 1450, 0, DEFAULT);
+VALUES  (1, 2500, 250, DEFAULT),
+        (1, 2250, 1250, 2),
+        (2, 2250, 2250, DEFAULT),
+        (3, 3125, 3125, 2),
+        (4, 2500, 2500, DEFAULT);
 
 INSERT INTO employees ( first_name, last_name, birthday, annual_salary, monthly_salary, job_position)
   VALUES  ("Joe", "Bloggs", '1983-11-01', 30000, 2500, 1),
