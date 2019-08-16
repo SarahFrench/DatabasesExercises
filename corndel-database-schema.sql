@@ -83,7 +83,15 @@ VALUES  (1, 500, 0, DEFAULT),
 
 INSERT INTO employees ( first_name, last_name, birthday, annual_salary, monthly_salary, job_position)
   VALUES  ("Joe", "Bloggs", '1983-11-01', 30000, 2500, 1),
-          ("Joanna", "Bleggs", birthday, 27000, 2250, 1),
-          ("John", "Bragg", birthday, 37500, 3125, 5),
-          ("Johannes", "Blégs", birthday, 30000, 2500, 2),
-          ("Jo", "Blages", birthday, 40000, 3333.33, 7);
+          ("Joanna", "Bleggs", '1989-04-06', 27000, 2250, 1),
+          ("John", "Bragg", '1993-09-20', 37500, 3125, 5),
+          ("Johannes", "Blégs", '1992-03-20', 30000, 2500, 2),
+          ("Jo", "Blages", '1990-12-16', 40000, 3333.33, 7),
+          ("Fou", "Barr", '1994-01-16', 25000, 2083.33, 3),
+          ("Bobby", "Droptables", '1995-10-06', 25000, 2083.33, 4),
+          ("Buzz", "Fizz", '1998-05-21', 10000, 833.33, 5),
+          ("Buzz", "Fizz", '1990-01-01', 35000, 2916.67, 6),
+          ("Dev", "Eloper", '1990-01-01', 30000, 2916.67, 1),
+          ("H", "Ackerman", '1990-01-01', 35000, 2916.67, 1),
+          ("Thomas", "Anderson", '1990-01-01', 32500, 2916.67, 1),
+          ("Rockstar", "Developer", '1990-01-01', 40000, 2916.67, 1);
