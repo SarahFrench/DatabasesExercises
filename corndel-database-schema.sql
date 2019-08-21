@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS job_positions (
 
 CREATE TABLE IF NOT EXISTS pensions (
   id INT NOT NULL AUTO_INCREMENT,
-  employee_id INT NOT NULL,
+  employee_id INT NOT NULL UNIQUE,
   total_contributions MEDIUMINT(255) NOT NULL DEFAULT 0,
   monthly_contribution MEDIUMINT(255) NOT NULL DEFAULT 0,
   provider INT NOT NULL DEFAULT 1,
